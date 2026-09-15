@@ -12,6 +12,12 @@ endpoints:
   method: GET
   url: https://www.combank.lk/api/interest-rates-fd
   path: (multi-host pack)
-  summary: 'Aggregator: ComBank/Sampath/Seylan/HNB FD JSON → unified ladder.'
+  summary: 'Aggregator: ComBank/Sampath/Seylan/HNB FD JSON → unified ladder.
+    Content-verified 2026-09-15 (not just HTTP status): ComBank endpoint
+    returns a real, full FD ladder with live rates (e.g. 24mo maturity
+    10.45-11.00%), not a false-healthy empty response. Checked as part of
+    a wider sweep after finding the sibling sl-bank-card-offers-docs pack
+    had a silent-empty-data bug on the same style of Sampath call — this
+    one does not have that problem.'
   pagination: null
   access: json_api
